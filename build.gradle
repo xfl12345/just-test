@@ -1,5 +1,32 @@
 plugins {
+    id 'eclipse'
+    id 'idea'
     id 'java'
+}
+
+eclipse {
+    classpath {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+java {
+    compileJava.options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
+    compileJava.options.encoding = 'UTF-8'
+    withSourcesJar()
+    // withJavadocJar()
+}
+
+javadoc {
+    options.encoding = 'UTF-8'
 }
 
 group 'cc.xfl12345'
