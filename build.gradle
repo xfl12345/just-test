@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '2.7.7'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 group 'cc.xfl12345'
@@ -11,8 +13,32 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    ArrayList<String> springBootDependencies = [
+            // 'starter-actuator',
+            // 'starter-thymeleaf',
+            'starter-web',
+            // 'starter-data-mongodb',
+            'starter-aop',
+            // 'starter-data-jdbc',
+            // 'starter-data-jpa',
+            // 'devtools',
+            'configuration-processor'
+    ]
+
+    springBootDependencies.each {
+        moduleName ->
+            {
+                implementation group: 'org.springframework.boot', name: 'spring-boot-' + moduleName
+                // implementation group: 'org.springframework.boot', name: 'spring-boot-' + moduleName, ext: 'pom'
+            }
+    }
+
+    // SpringDoc 框架
+    // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.13'
+
+
+    testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test')
 }
 
 test {

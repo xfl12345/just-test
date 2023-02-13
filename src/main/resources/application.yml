@@ -1,0 +1,70 @@
+spring:
+    application:
+        name: mybigdata
+    #devtools:
+    #    restart:
+    #        enabled: true
+    #        #additional-paths: src/main/java
+    #        trigger-file: .restartTriggerFile
+    #    livereload:
+    #        port: 54567
+    thymeleaf:
+        cache: false
+    sql:
+        init:
+            encoding: UTF-8
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss.SSS
+        property-naming-strategy: LOWER_CAMEL_CASE
+        time-zone: Asia/Hong_Kong
+        default-property-inclusion: non_null
+    servlet:
+        multipart:
+            max-file-size: -1
+    mvc:
+        converters:
+            preferred-json-mapper: jackson
+        contentnegotiation:
+            favor-parameter: true
+    data:
+        rest:
+            default-media-type: application/json
+
+
+server:
+    port: 8880
+    tomcat:
+        accesslog:
+            enabled: true
+            encoding: UTF-8
+            ipv6-canonical: true
+        remoteip:
+            protocol-header: X-Forwarded-Proto
+        use-relative-redirects: true
+    servlet:
+        encoding:
+            enabled: true
+            charset: UTF-8
+            force-response: true
+    forward-headers-strategy: native
+    http2:
+        enabled: true
+
+debug: true
+
+logging:
+    charset:
+        file: UTF-8
+
+bee:
+    osql:
+        showSQL: true
+        showSql:
+            showType: true
+            showExecutableSql: true
+            donotPrintCurrentDate: false
+        moreTable:
+            columnListWithStar: false
+        notCatchModifyDuplicateException: true
+
+
