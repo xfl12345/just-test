@@ -46,7 +46,7 @@ dependencies {
             'starter-web',
             // 'starter-data-mongodb',
             'starter-aop',
-            // 'starter-data-jdbc',
+            'starter-data-jdbc',
             // 'starter-data-jpa',
             // 'devtools',
             'configuration-processor'
@@ -63,6 +63,22 @@ dependencies {
     // SpringDoc 框架
     // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
     implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.13'
+
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java'
+
+    // https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter
+    implementation group: 'com.alibaba', name: 'druid-spring-boot-starter', version: '1.2.15'
+
+    // https://mvnrepository.com/artifact/org.teasoft/bee
+    implementation group: 'org.teasoft', name: 'bee', version: '2.0'
+
+    // https://mvnrepository.com/artifact/org.teasoft/honey
+    implementation group: 'org.teasoft', name: 'honey', version: '2.0'
+
+    // https://mvnrepository.com/artifact/org.teasoft/bee-spring-boot
+    implementation group: 'org.teasoft', name: 'bee-spring-boot', version: '1.17'
 
 
     testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test')

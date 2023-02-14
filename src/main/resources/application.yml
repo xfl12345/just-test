@@ -10,6 +10,46 @@ spring:
     #        port: 54567
     thymeleaf:
         cache: false
+
+    datasource:
+        username: ${spring.application.name}
+        password: ${spring.application.name}
+        url: "jdbc:mysql://localhost:3306/${spring.application.name}?characterEncoding=utf8&characterSetResults=utf8&serverTimezone=${spring.jackson.time-zone}&allowMultiQueries=true&nullCatalogMeansCurrent=true&useInformationSchema=true&remarks=true"
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        # druid 其它配置
+        druid:
+            initialSize: 5
+            minIdle: 5
+            maxActive: 60
+            maxWait: 120000
+            defaultAutoCommit: true
+            poolPreparedStatements: true
+            maxPoolPreparedStatementPerConnectionSize: 50
+            aop-patterns: cc.xfl12345.mybigdata.server.*
+            use-global-data-source-stat: true
+            connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;
+            filters: config,stat,slf4j,wall # wall用于防火墙
+            filter:
+                wall:
+                    config:
+                        alter-table-allow: true
+                        # 允许一次执行多条语句
+                        multi-statement-allow: true
+                        # 允许非基本语句的其他语句
+                        none-base-statement-allow: true
+            # 是否允许重置数据 （已设计成必填。安全相关，必须设置）
+            stat-view-servlet:
+                reset-enable: false
+            #是否启用StatFilter默认值false，用于采集 web-jdbc 关联监控的数据。
+            web-stat-filter:
+                enabled: true
+                #排除一些静态资源，以提高效率
+                exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+                #需要监控的 url
+                url-pattern: "/*"
+                session-stat-enable: true       # 开启session统计功能
+                session-stat-max-count: 1000    # session的最大个数,默认100
     sql:
         init:
             encoding: UTF-8
