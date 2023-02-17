@@ -1,4 +1,4 @@
-package cc.xfl12345;
+package cc.xfl12345.web;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;

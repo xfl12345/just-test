@@ -1,7 +1,7 @@
 package cc.xfl12345.web.controller;
 
 
-import cc.xfl12345.Main;
+import cc.xfl12345.web.Main;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
