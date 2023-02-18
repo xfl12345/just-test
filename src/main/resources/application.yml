@@ -98,6 +98,7 @@ logging:
 
 bee:
     osql:
+        loggerType: slf4j
         showSQL: true
         showSql:
             showType: true
