@@ -1,20 +1,23 @@
-package cc.xfl12345.web;
+package cc.xfl12345.app;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @EnableConfigurationProperties
 @SpringBootApplication
+@ComponentScan("cc.xfl12345.web")
+@ComponentScan("cc.xfl12345.config")
 public class Main {
     private static ConfigurableApplicationContext context;
 
     public static int restartCount = 0;
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        context = SpringApplication.run(Main.class, args);
     }
 
     public static void restart() {
